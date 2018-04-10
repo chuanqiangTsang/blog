@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+/* 样式重置 */
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  line-height: 1.5;
+  color: #333;
+  font-family: -apple-system, PingFang SC, Hiragino Sans GB, Arial, Microsoft YaHei, Helvetica Neue, sans-serif;
+  font-size: 12px;
+  background: #ededed;
+  word-break: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+
+input,
+textarea,
+select {
+  padding: 0;
+  font-size: 12px;
+  font-size: 100%;
+  font-family: arial;
+  font-family: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dt,
+dd,
+dl,
+form {
+  margin: 0;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1em;
+}
+
+ul,
+ol {
+  padding-left: 0;
+  list-style-type: none;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+
+/*image with no-border*/
+
+a img {
+  border: 0;
+}
+
+img {
+  border: 0;
+}
+
+/* vue渲染处理 */
+
+[v-cloak] {
+  display: none;
+}
+
+/* 清除浮动 */
+.clearfix:after{
+  clear: both;
+}

@@ -8,6 +8,12 @@ const routes = require("./Routers/index.js");
 app.set("view engin", "ejs");
 
 
+// 公共文件
+app.use('/script',express.static('./Static/bower_components'))
+app.use('/static',express.static('./Static'))
+
+app.use('/views',express.static('./Views'))
+
 routes(app);
 
 app.listen('3005');
