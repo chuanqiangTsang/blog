@@ -9,7 +9,6 @@ app.set("view engin", "ejs");
 
 
 // 公共文件
-app.use('/script',express.static('./Static/bower_components'))
 app.use('/static',express.static('./Static'))
 
 app.use('/views',express.static('./Views'))

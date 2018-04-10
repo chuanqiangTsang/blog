@@ -1,14 +1,13 @@
 const router = require('./routerCtrl.js')
 
 module.exports =  (app) => {
-    app.get('/', router.indexCtrl);
+    app.get('/', router.pageCtrl);
 
-    app.get('/about', router.aboutCtrl);
+    app.get('/about', router.pageCtrl);
 
-    app.get('/blog', router.blogCtrl);
+    app.get('/blog', router.pageCtrl);
 
-    app.get('/essays', router.essaysCtrl)
+    app.get('/essays', router.pageCtrl);
 
-    app.get('/detail', router.detailCtrl)
-    
+    app.get('/detail', router.pageCtrl);
 }

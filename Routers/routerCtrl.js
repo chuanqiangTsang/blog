@@ -3,43 +3,16 @@
 const theme = require('../Models/theme.js');
 
 module.exports = {
-    indexCtrl: (req, res, next) =>{
-        if(req){
-            theme.getTheme(function(theme){
-                res.render(theme + '/index.ejs', {BaseURL: '/views/' + theme});
-            })
-        }
-    },
 
-    aboutCtrl: (req, res, next) =>{
+    pageCtrl: (req, res, next)=>{
         if(req){
+            // 获取path
+            let path = req.route.path.split('/')[1];
+            path = path === '' ? 'index': path;
             theme.getTheme(function(theme){
-                res.render(theme + '/about.ejs', {BaseURL: '/views/' + theme})
+                res.render(theme + '/'+ path +'.ejs', {BaseURL: '/views/' + theme});
             })
         }
-    },
-
-    blogCtrl: (req, res, next) =>{
-        if(req){
-            theme.getTheme(function(theme){
-                res.render(theme + '/blog.ejs', {BaseURL: '/views/' + theme})
-            })
-        }
-    },
-
-    essaysCtrl: (req, res, next) =>{
-        if(req){
-            theme.getTheme(function(theme){
-                res.render(theme + '/essays.ejs', {BaseURL: '/views/' + theme})
-            })
-        }
-    },
-
-    detailCtrl: (req, res, next) =>{
-        if(req){
-            theme.getTheme(function(theme){
-                res.render(theme + '/detail.ejs', {BaseURL: '/views/' + theme})
-            })
-        }
+        
     },
 }
