@@ -35,7 +35,7 @@ body{
 }
 .login-form {
 	background:#eee;
-	width: 26%;
+	width: 500px!important;
 	margin:9% auto 4% auto;
  	position: relative;
  	-webkit-border-radius: 0.4em;
@@ -266,10 +266,11 @@ form p a:hover {
  input[type="text"], input[type="password"]{
 	text-align:left;
 	position: relative;
-	width:92%;
-	padding:3%;
+	width:85%!important;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 6%;
 	background:#D3D3D3;
-	margin-bottom: 6%;
 	font-family: 'Open Sans', sans-serif;
 	color: #676767;
 	font-weight:600;
@@ -290,8 +291,8 @@ form p a:hover {
  	
  }
 input[type="submit"]{
-	width: 99%;
-	padding: 3%;
+	width: 92%!important;
+	padding: 3% 0;
 	margin-bottom: 8%;
 	background: #21A957;
 	font-family: 'Open Sans', sans-serif;
@@ -302,8 +303,8 @@ input[type="submit"]{
 	-o-text-shadow: 0px 0px 3px #000;
 	-ms-text-shadow: 0px 0px 3px #000;
 	font-size: 20px;
-	outline: none;
 	border: none;
+	outline: none;
 	cursor: pointer;
 	font-weight:500;
 	border-radius: 5px;
@@ -317,6 +318,26 @@ input[type="submit"]{
 input[type="submit"]:hover{
 	background:#128A42;
 	color:#fff;
+}
+
+/**************/
+.page-form-item{
+	position: relative;
+	margin-bottom: 25px;
+}
+
+.page-form-item .isErr{
+	position: absolute;
+	right: 0;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	        transform: translateY(-50%);
+	display: none;
+}
+
+.isErr img{
+	width: 20px;
+	display: block;
 }
 /****************/
 .copy-right {
@@ -334,10 +355,6 @@ input[type="submit"]:hover{
 	font-family: 'Open Sans', sans-serif;	
 	font-size: 1em;
 	color:#21A957;
-	-webkit-transition: all 0.3s ease-out;
-	-moz-transition: all 0.3s ease-out;
-	-ms-transition: all 0.3s ease-out;
-	-o-transition: all 0.3s ease-out;
 	transition: all 0.3s ease-out;
 }
 .copy-right p a:hover{
@@ -930,3 +947,5 @@ input[type="submit"]:hover{
 	}
 		
 }
+
+
