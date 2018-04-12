@@ -9,5 +9,8 @@ module.exports = {
                     return false;
                 });
         });
+    },
+    checkUser: function(cb){
+        console.log()
     }
 }

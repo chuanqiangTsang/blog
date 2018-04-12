@@ -10,4 +10,9 @@ module.exports =  (app) => {
     app.get('/essays', router.pageCtrl);
 
     app.get('/detail', router.pageCtrl);
+
+    app.get('/register', router.registerCtrl);
+
+    app.get('/login', router.loginCtrl);
+    
 }

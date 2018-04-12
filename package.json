@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "ejs": "^2.5.8",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "express-session": "^1.15.6"
   }
 }

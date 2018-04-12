@@ -1,6 +1,14 @@
 const express = require("express");
 const app = express();
 
+// 引入session
+const session = require("express-session");
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+  }));
+
 // 引入路由
 const routes = require("./Routers/index.js");
 
