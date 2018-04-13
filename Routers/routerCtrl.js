@@ -1,6 +1,4 @@
 
-// 获取模板
-const theme = require('../Models/theme.js');
 module.exports = {
     pageCtrl: (req, res, next)=>{
         if(req){

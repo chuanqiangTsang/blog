@@ -1,4 +1,5 @@
 const router = require('./routerCtrl.js')
+const doRegisterCtrl = require('./Api/register.js')
 
 module.exports =  (app) => {
     app.get('/', router.pageCtrl);
@@ -15,4 +16,7 @@ module.exports =  (app) => {
 
     app.get('/login', router.loginCtrl);
     
+
+    // controller 接口请求
+    app.post('/doRegister', doRegisterCtrl.doRegister)
 }
