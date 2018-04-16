@@ -1,6 +1,7 @@
 // 20180416 By John
 $(function(){
-	$('#loginForm').validate({
+	$('#submitBtn').click(function(){
+		$('#loginForm').validate({
 		rules: {
 			loginName: {
 				required: true
@@ -28,11 +29,13 @@ $(function(){
 				type: 'post',
 				data: ajaxData
 			}).done(function(data){
-				if(data.State === true){
+				if(data.State === false){
 					// todo 登录失败的时候
-					window.location.href = '/';
+					alert(data.Msg);
 				}
 			});
 		}
+		})
 	})
+	
 })

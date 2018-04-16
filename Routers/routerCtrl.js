@@ -3,9 +3,10 @@ module.exports = {
     pageCtrl: (req, res, next)=>{
         if(req){
             var session = req.session;
-            console.log(session);
             if(session.isLogin === true){
                 // 获取path
+                console.log('登录了');
+                return false;
                 let path = req.route.path.split('/')[1];
                 path = path === '' ? 'index': path;
                 theme.getTheme(function(theme){

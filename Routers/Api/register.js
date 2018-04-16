@@ -46,15 +46,14 @@ module.exports = {
 			var loginInfo = {loginName: fields.loginName, password: fields.password, isDel: {$ne: 1}}
 			dbFn.find('users', loginInfo, function(err, doc){
 				if(doc.length > 0){
-					res.json({State: true, Data: null, Msg: '登录成功'});
 					// 将用户信息写入session
+					// 如果验证成功， 直接跳转， 无需返回值给前端
 					req.session.user = {username: doc[0].loginName, nickName: doc[0].nickName}
 					req.session.isLogin = true;
-					console.log(req.session)
+					res.redirect('/');
 				}else{
 					res.json({State: false, Data: null, Msg: '用户名或密码错误'});
 					req.session.user = {username: '', nickName: ''}
-					req.session.isLogin = false;
 				}
 			})
 		})
