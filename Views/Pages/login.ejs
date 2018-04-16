@@ -18,11 +18,17 @@
 					<div class="head">
 						<img src="/Views/Pages/img/user.png" alt=""/>
 					</div>
-				<form>
-						<input type="text" class="text" value=""  placeholder="请输入用户名">
-						<input type="password" value="" placeholder="请输入密码">
-						<div class="submit">
-							<input type="submit" onclick="myFunction()" value="LOGIN" >
+				<form id="loginForm">
+					<div class="page-form-item">
+						<input type="text" class="text" value=""  placeholder="请输入登录名" id="loginName" name="loginName">
+					</div>
+
+					<div class="page-form-item">
+						<input type="password" value="" placeholder="请输入密码" id="password" name="password">
+					</div>
+
+					<div class="submit">
+						<input type="submit" value="立即登录" >
 					</div>	
 					<p>没有账号？<a href="/register">去注册</a></p>
 				</form>
@@ -31,6 +37,9 @@
                 <p>Powered by  <a href="#">. John .</a></p> 
             </div>
 		</div>
-		 		
+		<script type="text/javascript" src="/static/scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="/static/scripts/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="/static/scripts/jquery.md5.js"></script>		 		
+		<script type="text/javascript" src="/Views/Pages/js/login.js"></script>	 		
 </body>
 </html>

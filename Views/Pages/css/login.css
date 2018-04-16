@@ -335,6 +335,15 @@ input[type="submit"]:hover{
 	top: 42px;
 }
 
+.page-form-item .err-msg{
+	color: #a10;
+	font-size: 12px;
+	position: absolute;
+	left: 0;
+	top: 42px;
+	display: none;
+}
+
 /****************/
 .copy-right {
 	position: absolute;

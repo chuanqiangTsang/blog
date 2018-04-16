@@ -15,8 +15,11 @@ module.exports =  (app) => {
     app.get('/register', router.registerCtrl);
 
     app.get('/login', router.loginCtrl);
-    
+
 
     // controller 接口请求
     app.post('/doRegister', doRegisterCtrl.doRegister)
+    app.post('/doCheckUser', doRegisterCtrl.doCheckUser)
+	app.post('/doLogin', doRegisterCtrl.doLogin)
+    
 }

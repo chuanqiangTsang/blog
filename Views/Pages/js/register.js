@@ -1,5 +1,25 @@
 // 20180412 By John
 $(function(){
+	var isLogin = true;
+	// 检验是否重复注册
+	$('#email').blur(function(){
+		checkRepeatUsers('email', $(this).val(), function(data){
+			isLogin = data;
+		})
+	})
+
+	$('#loginName').blur(function(){
+		isLogin = checkRepeatUsers('loginName', $(this).val(), function(data){
+			isLogin = data;
+		})
+	})
+
+	$('#nickName').blur(function(){
+		isLogin = checkRepeatUsers('nickName', $(this).val(), function(data){
+			isLogin = data;
+		})
+	})
+
 	$('#registerForm').validate({
 		rules: {
 			email: {
@@ -48,25 +68,78 @@ $(function(){
 		submitHandler: function(){
 			// 整理参数
 			var ajaxData = {
-				email: $('#email').val(),
-				loginName: $('#loginName').val(),
-				nickName: $('#nickName').val(),
-				password: $('#password').val(),
+				email: $('#email').val().trim(),
+				loginName: $('#loginName').val().trim(),
+				nickName: $('#nickName').val().trim(),
+				password: $.md5($('#password').val() + 'blog'),
 			}
-			$.ajax({
+			if(isLogin){
+				$.ajax({
 				url: '/doRegister',
 				type: 'post',
 				data: ajaxData
 			}).done(function(data){
 				if(data.State === true){
-					alert('恭喜注册成功！');
-					// todo
+					// 暂时跳转到登录
+					window.location.href = '/login'
+
 				}
 			})
+			}
 		}
 	})
-});
 
+	// 定义总函数
+	function checkRepeatUsers(type, value, cb){
+		if(type === 'email'){
+			$.ajax({
+			url: '/doCheckUser',
+			type: 'post',
+			data: { email: value}
+			}).done(function(data){
+				if(data.State === false){
+					$('#email').siblings('span.err-msg').show().text('邮箱已被注册');
+					cb(false);
+				}else{
+					$('#email').siblings('span.err-msg').hide().text('');
+					cb(true);	
+				}
+			});
+		}
+
+		if(type === 'loginName'){
+			$.ajax({
+			url: '/doCheckUser',
+			type: 'post',
+			data: { loginName: value}
+			}).done(function(data){
+				if(data.State === false){
+					$('#loginName').siblings('span.err-msg').show().text('登录名已被注册');
+					cb(false);
+				}else{
+					$('#loginName').siblings('span.err-msg').hide().text('');
+					cb(true);	
+				}
+			});
+		}
+
+		if(type === 'nickName'){
+			$.ajax({
+			url: '/doCheckUser',
+			type: 'post',
+			data: { nickName: value}
+			}).done(function(data){
+				if(data.State === false){
+					$('#nickName').siblings('span.err-msg').show().text('登录名已被注册');
+					cb(false);
+				}else{
+					$('#nickName').siblings('span.err-msg').hide().text('');	
+					cb(true);
+				}
+			});
+		}
+	}
+})
 
 // 自定义校验邮箱
 jQuery.validator.addMethod("checkEmail", function(value, element){

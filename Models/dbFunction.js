@@ -21,5 +21,15 @@ module.exports = {
 				cb(num);
 			}
 		})
+	},
+
+	find: function(collection, filters,cb){
+		db.model(collection).find(filters, function(err, doc){
+			if(err){
+				cb(err, null)
+			}else{
+				cb(null, doc)
+			}
+		})
 	}
 }
