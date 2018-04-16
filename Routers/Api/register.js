@@ -50,8 +50,7 @@ module.exports = {
 					// 将用户信息写入session
 					req.session.user = {username: doc[0].loginName, nickName: doc[0].nickName}
 					req.session.isLogin = true;
-					//todo
-					//console.log(req.session);
+					console.log(req.session)
 				}else{
 					res.json({State: false, Data: null, Msg: '用户名或密码错误'});
 					req.session.user = {username: '', nickName: ''}

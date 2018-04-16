@@ -2,8 +2,6 @@ const express = require("express");
 const app = express();
 
 // 引入session
-const cookieParse = require('cookie-parser');
-app.use(cookieParse('keyboard cat'));
 const session = require("express-session");
 app.use(session({
     secret: 'keyboard cat',

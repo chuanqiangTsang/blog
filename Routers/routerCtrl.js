@@ -3,11 +3,8 @@ module.exports = {
     pageCtrl: (req, res, next)=>{
         if(req){
             var session = req.session;
-            // todo
-            //console.log(session);
+            console.log(session);
             if(session.isLogin === true){
-                console.log('登录了');
-                return false;
                 // 获取path
                 let path = req.route.path.split('/')[1];
                 path = path === '' ? 'index': path;
