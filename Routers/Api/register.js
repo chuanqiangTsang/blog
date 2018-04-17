@@ -47,13 +47,12 @@ module.exports = {
 			dbFn.find('users', loginInfo, function(err, doc){
 				if(doc.length > 0){
 					// 将用户信息写入session
-					// 如果验证成功， 直接跳转， 无需返回值给前端
-					req.session.user = {username: doc[0].loginName, nickName: doc[0].nickName}
+					req.session.user = {username: doc[0].loginName, nickName: doc[0].nickName, id: doc[0]._id}
 					req.session.isLogin = true;
-					res.redirect('/');
+					res.json({State: true, Data: null, Msg: null});
 				}else{
 					res.json({State: false, Data: null, Msg: '用户名或密码错误'});
-					req.session.user = {username: '', nickName: ''}
+					req.session.user = {username: '', nickName: '', id: ''}
 				}
 			})
 		})

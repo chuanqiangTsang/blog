@@ -31,5 +31,16 @@ module.exports = {
 				cb(null, doc)
 			}
 		})
+	},
+
+	getTheme: function(collection, id, cb){
+		db.model(collection).find({_id: id}, function(err, doc){
+			let theme = doc[0].theme;
+			if(err){
+				cb(err, null);
+			}else{
+				cb(null, theme);
+			}
+		})
 	}
 }

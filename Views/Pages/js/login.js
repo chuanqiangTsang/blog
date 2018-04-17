@@ -29,8 +29,9 @@ $(function(){
 				type: 'post',
 				data: ajaxData
 			}).done(function(data){
-				if(data.State === false){
-					// todo 登录失败的时候
+				if(data.State === true){
+					window.location.href = "/";
+				}else{
 					alert(data.Msg);
 				}
 			});
