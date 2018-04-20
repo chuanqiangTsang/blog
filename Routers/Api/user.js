@@ -56,5 +56,11 @@ module.exports = {
 				}
 			})
 		})
+	},
+
+	doLogout: (req, res, next)=>{
+		let session = req.session;
+		 req.session.destroy();
+		 res.redirect('/');
 	}
 }

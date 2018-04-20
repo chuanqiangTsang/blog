@@ -1,5 +1,5 @@
 const router = require('./routerCtrl.js')
-const doRegisterCtrl = require('./Api/register.js')
+const doUserCtrl = require('./Api/user.js')
 
 module.exports =  (app) => {
     app.get('/', router.pageCtrl);
@@ -18,8 +18,8 @@ module.exports =  (app) => {
 
 
     // controller 接口请求
-    app.post('/doRegister', doRegisterCtrl.doRegister)
-    app.post('/doCheckUser', doRegisterCtrl.doCheckUser)
-	app.post('/doLogin', doRegisterCtrl.doLogin)
-    
+    app.post('/doRegister', doUserCtrl.doRegister)
+    app.post('/doCheckUser', doUserCtrl.doCheckUser)
+	app.post('/doLogin', doUserCtrl.doLogin)
+    app.get('/doLogout', doUserCtrl.doLogout)
 }
